@@ -1,0 +1,334 @@
+<!DOCTYPE html> <!-- Declaro HTML5 -->
+<html lang="en"> <!-- Idioma del documento -->
+<head>
+    <meta charset="UTF-8"> <!-- Codificación para tildes y caracteres especiales -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- name="viewport" This setting is to control how the page is displayed on different screens.
+                content="width=device-width" La página debe ajustarse al ancho REAL del dispositivo en el que se este viendo
+                initial-scale=1.0 La página debe empezar SIN zoom (tamaño normal) -->
+        
+    <title>Frontend Mentor | [Blogr]</title> <!-- Title visible in browser tab -->
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" /> <!-- Browser tab icon, load a 32x32 PNG -->
+    
+    <link rel="stylesheet" href="styles.css"> <!--Es para conectar el index con con el css -->
+</head>
+<body>
+    <header class="site-header"> <!-- Encabezado del sitio, normalmente contiene logo, navegación y hero -->
+
+        <nav class="nav" aria-label="Primary navigation"> <!-- Navegación principal del sitio, aria-label ayuda a lectores de pantalla -->
+
+            <a class="nav__logo" href="#" aria-label="Go to homepage"> <!-- Enlace al inicio usando el logo como zona clickeable -->
+                
+                <img src="./images/logo.svg" alt="Blogr" /> <!-- Imagen del logo, alt describe el contenido -->
+            </a> <!-- Close logo link -->
+
+            
+
+            <details class="nav__mobile"> <!-- Contenedor nativo: abre y cierra el menú móvil sin JS -->
+
+                <summary class="nav__toggle" aria-label="Open menu"> <!-- Botón nativo (summary) para abrir/cerrar -->
+                    <img src="./images/icon-hamburger.svg" alt="" /> <!-- Ícono hamburguesa (decorativo) -->
+                </summary> <!-- Cierra summary, fin del boton-->
+
+                <div class="nav__panel"> <!-- Panel que aparece cuando el menú se abre -->
+
+                    <ul class="nav__menu nav__menu--mobile"> <!-- Menú móvil en lista semántica -->
+                        <li class="nav__item"> <!-- Opción 1 -->
+                            <details class="nav__dropdown"> <!-- Dropdown nativo -->
+                                <summary class="nav__link">Product</summary> <!-- Título clickeable -->
+                                <ul class="dropdown"> <!-- Opciones desplegables -->
+                                    <li><a href="#">Overview</a></li> <!-- Link -->
+                                    <li><a href="#">Pricing</a></li> <!-- Link -->
+                                    <li><a href="#">Marketplace</a></li> <!-- Link -->
+                                    <li><a href="#">Features</a></li> <!-- Link -->
+                                    <li><a href="#">Integrations</a></li> <!-- Link -->
+                                </ul> <!-- Cierra dropdown -->
+                            </details> <!-- Cierra details -->
+                        </li> <!-- Cierra item -->
+
+                        <li class="nav__item"> <!-- Opción 2 -->
+                            <details class="nav__dropdown"> <!-- Dropdown nativo -->
+                                <summary class="nav__link">Company</summary> <!-- Título -->
+                                <ul class="dropdown"> <!-- Opciones -->
+                                    <li><a href="#">About</a></li> <!-- Link -->
+                                    <li><a href="#">Team</a></li> <!-- Link -->
+                                    <li><a href="#">Blog</a></li> <!-- Link -->
+                                    <li><a href="#">Careers</a></li> <!-- Link -->
+                                </ul> <!-- Cierra dropdown -->
+                            </details> <!-- Cierra details -->
+                        </li> <!-- Cierra item -->
+
+                        <li class="nav__item"> <!-- Opción 3 -->
+                            <details class="nav__dropdown"> <!-- Dropdown nativo -->
+                                <summary class="nav__link">Connect</summary> <!-- Título -->
+                                <ul class="dropdown"> <!-- Opciones -->
+                                    <li><a href="#">Contact</a></li> <!-- Link -->
+                                    <li><a href="#">Newsletter</a></li> <!-- Link -->
+                                    <li><a href="#">LinkedIn</a></li> <!-- Link -->
+                                </ul> <!-- Cierra dropdown -->
+                            </details> <!-- Cierra details -->
+                        </li> <!-- Cierra item -->
+                    </ul> <!-- Cierra menú móvil -->
+
+                    <div class="nav__actions nav__actions--mobile"> <!-- Acciones en el panel móvil -->
+                        <a class="btn btn--link" href="#">Login</a> <!-- Login -->
+                        <a class="btn btn--primary" href="#">Sign Up</a> <!-- Sign Up -->
+                    </div> <!-- Cierra acciones -->
+
+                </div> <!-- Cierra panel -->
+
+            </details> <!-- Cierra menú móvil -->
+            
+            <ul class="nav__menu"> <!-- Semantic navigation list, meets ul li a requirement -->
+                
+                <li class="nav__item"> <!-- Primer grupo del menú -->
+                    <details class="nav__dropdown"> <!-- Contenedor nativo que permite abrir y cerrar contenido sin JavaScript -->
+                        <summary class="nav__link">Product</summary> <!-- Texto visible del menú; al hacer clic abre o cierra el dropdown(menu desplegable invisible) -->
+                        <ul class="dropdown"> <!-- Lista que contiene las opciones desplegables del menú (dropdown) -->
+                        <li><a href="#">Overview</a></li> <!-- Link interno del dropdown -->
+                        <li><a href="#">Pricing</a></li> <!-- Link interno del dropdown -->
+                        <li><a href="#">Marketplace</a></li> <!-- Link interno del dropdown -->
+                        <li><a href="#">Features</a></li> <!-- Link interno del dropdown -->
+                        <li><a href="#">Integrations</a></li> <!-- Link interno del dropdown -->
+                        </ul> <!-- Cierra lista del dropdown -->
+                    </details> <!-- Cierra dropdown -->
+                </li> <!-- Close menu item -->
+                
+                
+                <li class="nav__item"> <!-- Second menu group -->
+                    <details class="nav__dropdown"> <!-- Contenedor nativo que permite abrir y cerrar contenido sin JavaScript -->
+                        <summary class="nav__link">Company</summary> <!-- Disparador del dropdown -->
+                        <ul class="dropdown"> <!-- Lista de links del dropdown -->
+                        <li><a href="#">About</a></li> <!-- Link interno -->
+                        <li><a href="#">Team</a></li> <!-- Link interno -->
+                        <li><a href="#">Blog</a></li> <!-- Link interno -->
+                        <li><a href="#">Careers</a></li> <!-- Link interno -->
+                        </ul> <!-- Cierra lista -->
+                    </details> <!-- Cierra dropdown -->
+                </li> <!-- Close item -->
+                
+
+                <li class="nav__item"> <!-- Third menu group -->
+                    <details class="nav__dropdown"> <!-- Dropdown nativo -->
+                        <summary class="nav__link">Connect</summary> <!-- Disparador del dropdown -->
+                        <ul class="dropdown"> <!-- Lista de links del dropdown -->
+                        <li><a href="#">Contact</a></li> <!-- Link interno -->
+                        <li><a href="#">Newsletter</a></li> <!-- Link interno -->
+                        <li><a href="#">LinkedIn</a></li> <!-- Link interno -->
+                        </ul> <!-- Cierra lista -->
+                    </details> <!-- Cierra dropdown -->
+                    </li> <!-- Close item -->
+                
+            </ul> <!-- Close menu -->
+            
+            
+            <div class="nav__actions"> <!-- Contenedor para acciones del usuario (login y registro) -->
+                <a class="nav__login" href="#">Login</a> <!-- Enlace de login -->
+                <a class="nav__signup" href="#">Sign Up</a> <!-- Enlace o botón de registro -->
+            </div> <!-- Cierra acciones -->
+            
+        </nav> <!-- Cierra nav -->
+
+
+
+        <section class="hero" aria-label="Hero section"> <!-- Sección principal visible al abrir la página -->
+
+
+            <h1 class="hero__title">A modern publishing platform</h1> <!-- Único h1 permitido en toda la página -->
+
+            <p class="hero__subtitle">Grow your audience and build your online brand</p> <!-- Texto de apoyo del hero -->
+
+            <div class="hero__cta"> <!-- Contenedor para los botones principales del hero -->
+                <a class="btn btn--primary" href="#">Start for Free</a> <!-- Botón principal del hero -->
+                <a class="btn btn--secondary" href="#">Learn More</a> <!-- Botón secundario del hero -->
+            </div> <!-- Cierra contenedor de botones -->
+
+            </section> <!-- Cierra hero -->
+
+    </header> <!-- Cierra header -->
+    
+    
+    <main class="main"> <!-- Contenido principal del sitio, todo lo importante va aquí -->
+
+        <section class="section section--editor" aria-label="Designed for the future"> <!-- Sección 1 del contenido -->
+            <div class="container"> <!-- Container to limit width and focus on CSS -->
+            
+                <h2 class="section__title">Designed for the future</h2> <!-- Section title, must be h2 -->
+                
+                <div class="section__layout section__layout--editor"> <!-- Section Layout General Container -->
+
+                    
+                    <div class="section__content"> <!-- Bloque para agrupar los artículos de texto -->
+
+
+                        <article class="feature"> <!-- Primer bloque de contenido dentro de la sección -->
+                            <h3 class="feature__title">Introducing an extensible editor</h3> <!-- Subtítulo interno, h3 porque depende del h2 -->
+                            <p class="feature__text">
+                                Blogr features an exceedingly intuitive interface which lets you focus on one thing: creating content.
+                                The editor supports management of multiple blogs and allows easy manipulation of embeds such as images,
+                                videos, and Markdown. Extensibility with plugins and themes provide easy ways to add functionality or
+                                change the looks of a blog.
+                            </p> <!-- Párrafo con el texto del reto -->
+                        </article> <!-- Fin del artículo -->
+                    
+                
+                        <article class="feature"> <!-- Segundo bloque dentro de la misma sección -->
+                            <h3 class="feature__title">Robust content management</h3> <!-- Subtítulo interno -->
+                            <p class="feature__text">
+                                Flexible content management enables users to easily move through posts. Increase the usability of your blog
+                                by adding customized categories, sections, format, or flow. With this functionality, you’re in full control.
+                            </p> <!-- Párrafo -->
+                        </article> <!-- Close item -->
+                        
+                    </div> <!-- Fin del bloque de contenido -->
+                    
+                    <div class="section__media" aria-hidden="true"> <!-- Bloque visual, decorativo, no esencial para lector de pantalla -->
+                        
+                        <picture> <!-- Permite cambiar imagen según tamaño de pantalla -->
+                            <source media="(max-width: 768px)" srcset="./images/illustration-editor-mobile.svg" /> <!-- Imagen para móvil -->
+                            <img src="./images/illustration-editor-desktop.svg" alt="" /> <!-- Imagen decorativa para desktop, alt vacío correcto -->
+                        </picture> <!-- Fin picture -->
+                    </div> <!-- Fin media -->
+                    
+                </div> <!-- Fin layout, cierra este  <div class="section__layout section__layout--editor">-->
+                
+            </div> <!-- Fin container -->  
+        </section> <!-- Close section 1 -->
+                
+                
+        
+        <section class="section section--infrastructure" aria-label="Infrastructure"> <!-- Section 2 of the content -->
+            <div class="container"> <!-- Container centered -->
+                
+                    <div class="section__layout section__layout--infrastructure"> <!-- Contenedor que luego será Grid o Flex según breakpoint -->
+                        
+                        <div class="section__media" aria-hidden="true"> <!-- Decorative image -->
+                            <img src="./images/illustration-phones.svg" alt="" /> <!-- Decorative image -->
+                        </div> <!-- Fin media -->
+                        
+                        <article class="feature"> <!-- Main text of this section -->
+                            <h2 class="section__title">State of the Art Infrastructure</h2> <!-- Título de sección -->
+                            <p class="section__text">  <!-- Descriptive paragraph -->
+                                With reliability and speed in mind, worldwide data centers provide the backbone for ultra-fast connectivity.
+                                This ensures your site will load instantly, no matter where your readers are, keeping your site competitive.
+                            </p> <!-- Texto de la sección -->
+                        </article> <!-- End item -->
+                        
+                    </div> <!-- End layout -->
+                    
+            </div> <!-- Fin container -->
+        </section> <!-- Fin sección 2 -->
+        
+        
+        <section class="section section--features" aria-label="Additional features"> <!-- Section 3 of the content -->
+            <div class="container"> <!-- Container centered -->
+                
+                <div class="section__layout section__layout--features"> <!-- Container that will then be Grid: image on one side, text on the other -->
+                    
+                    <div class="section__media" aria-hidden="true"> <!-- Decorative image -->
+                        <picture>  <!-- Permite cambiar imagen según tamaño -->
+                            <source media="(max-width: 768px)" srcset="./images/illustration-laptop-mobile.svg" /> <!-- Mobile Image -->
+                            <img src="./images/illustration-laptop-desktop.svg" alt="" /> <!-- Imagen decorativa para desktop -->
+                        </picture> <!-- Fin picture -->
+                    </div> <!-- Fin media -->
+                    
+                    
+                    <div class="section__content"> <!-- Columna de texto para los features -->
+
+                            <h2 class="section__title">Additional Features</h2> <!-- Título principal de esta sección (h2) -->
+                            
+                        <article class="feature"> <!-- Bloque 1 dentro de la sección 3 -->
+                            <h2 class="feature__title">Free, open, simple</h2> <!-- Usamos h2 aquí porque es un título principal dentro del main -->
+                            <p class="feature__text">
+                                Blogr is a free and open source application backed by a large community of helpful developers. It supports
+                                features such as code syntax highlighting, RSS feeds, social media integration, third-party commenting tools,
+                                and works seamlessly with Google Analytics. The architecture is clean and is relatively easy to learn.
+                            </p> <!-- Párrafo -->
+                        </article> <!-- fin feature -->
+                        
+                        
+                        <article class="feature"> <!-- Feature 2 -->
+                            <h3 class="feature__title">Powerful tooling</h3> <!-- Título interno (h3) -->
+                            <p class="feature__text"> <!-- Párrafo -->
+                                Batteries included. We built a simple and straightforward CLI tool that makes customization and deployment a breeze, but
+                                capable of producing even the most complicated sites.
+                            </p> <!-- Fin párrafo -->
+                        </article> <!-- Fin feature -->
+                    
+                    </div> <!-- End content -->
+                    
+                </div> <!-- End layout -->
+                
+            </div> <!-- Fin container -->
+            
+        </section> <!-- Fin sección 3 -->
+        
+    </main> <!-- Fin del main -->
+
+        
+        
+        
+    
+    
+    <footer class="footer"> <!-- Pie de página semántico -->
+    
+        <div class="container"> <!-- General container to center content and limit width -->
+            
+            <div class="footer__layout"> <!-- Container that will then be a Grid with several columns -->
+                
+                <div class="footer__brand"> <!-- Column dedicated to the brand -->
+                    <img src="./images/logo.svg" alt="Blogr" class="footer__logo" /> <!-- Logo on the footer -->
+                </div> <!-- Cierra columna de marca -->
+    
+                <section class="footer__links" aria-label="Footer links"> <!-- Agrupa las columnas de enlaces -->
+                    
+                    <article class="footer__col"> <!-- Primera columna de enlaces -->
+                        <h3 class="footer__title">Product</h3> <!-- Título de la columna -->
+                        <ul> <!-- Lista semántica de enlaces -->
+                            <li><a href="#">Overview</a></li> <!-- Link -->
+                            <li><a href="#">Pricing</a></li> <!-- Link -->
+                            <li><a href="#">Marketplace</a></li> <!-- Link -->
+                            <li><a href="#">Features</a></li> <!-- Link -->
+                            <li><a href="#">Integrations</a></li> <!-- Link -->
+                        </ul> <!-- Cierra lista -->
+                    </article> <!-- Close Column -->
+                    
+                    <article class="footer__col"> <!-- Segunda columna de enlaces -->
+                        <h3 class="footer__title">Company</h3> <!-- Título -->
+                        <ul> <!-- Lista -->
+                            <li><a href="#">About</a></li> <!-- Link -->
+                            <li><a href="#">Team</a></li> <!-- Link -->
+                            <li><a href="#">Blog</a></li> <!-- Link -->
+                            <li><a href="#">Careers</a></li> <!-- Link -->
+                        </ul> <!-- Cierra lista -->
+                    </article> <!-- Cierra columna -->
+                    
+                    
+                    <article class="footer__col"> <!-- Tercera columna de enlace -->
+                        <h3 class="footer__title">Connect</h3> <!-- Título -->
+                        <ul> <!-- Lista -->
+                            <li><a href="#">Contact</a></li> <!-- Link -->
+                            <li><a href="#">Newsletter</a></li> <!-- Link -->
+                            <li><a href="#">LinkedIn</a></li> <!-- Link -->
+                        </ul> <!-- Cierra lista -->
+                    </article> <!-- Close Column -->
+                            
+                            
+                </section> <!-- Cierra sección de los enlaces -->
+                
+            </div> <!-- Cierra layout del footer -->
+            
+            <p class="attribution"> <!-- Attribution text, part of Frontend Mentor starter -->
+                Challenge by
+                <a href="https://www.frontendmentor.io?ref=challenge" target="_blank" rel="noreferrer">
+                    Frontend Mentor
+                </a>.
+                Coded by <a href="#">Andrea Lizcano By RIWI </a>.
+            </p> <!-- Fin attribution -->
+            
+        </div> <!-- Cierra container -->
+        
+    </footer> <!-- Fin footer -->
+    
+</body>
+</html>

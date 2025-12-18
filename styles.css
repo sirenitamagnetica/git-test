@@ -1,0 +1,540 @@
+            :root { /* Global variables: here we define the basic design system */
+  --color-white: #ffffff; /* Blanco para fondos o texto */
+  --color-black: #000000; /* Negro para texto o contraste */
+
+  --color-text: hsl(207, 13%, 34%); /* Color de texto principal (gris azulado) */
+  --color-heading: hsl(208, 49%, 24%); /* Color para títulos, más oscuro y con jerarquía */
+  --color-footer-bg: hsl(240, 10%, 16%); /* Fondo del footer */
+  --color-footer-text: hsl(240, 2%, 79%); /* Texto del footer */
+
+  --color-primary: hsl(356, 100%, 66%); /* Color principal del diseño (CTA) */
+  --color-primary-hover: hsl(355, 100%, 74%); /* Color principal al pasar el mouse */
+  --color-secondary: hsl(237, 23%, 32%); /* Color secundario para fondos o acentos */
+
+  --font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; /* Fuente base segura */
+  --font-size-base: 16px; /* Tamaño base del texto, referencia para rem */
+
+  --radius-sm: 8px; /* Borde redondeado pequeño */
+  --radius-md: 16px; /* Borde redondeado mediano */
+  --radius-pill: 999px; /* Borde totalmente redondeado para botones tipo píldora */
+
+  --space-1: 4px; /* Espaciado mínimo */
+  --space-2: 8px; /* Espaciado pequeño */
+  --space-3: 12px; /* Espaciado medio */
+  --space-4: 16px; /* Espaciado base */
+  --space-5: 24px; /* Espaciado grande */
+  --space-6: 32px; /* Espaciado mayor */
+  --space-7: 48px; /* Espaciado sección */
+  --space-8: 64px; /* Espaciado sección grande */
+
+  --container-max: 1100px; /* Ancho máximo del contenido centrado */
+}
+
+* { /* Selector universal: aplica a todos los elementos */
+  box-sizing: border-box; /* Incluye padding y borde dentro del width y height */
+}
+
+body { /* Estilos globales del documento */
+  margin: 0; /* Elimina margen por defecto del navegador */
+  font-family: var(--font-family); /* Aplica la fuente definida */
+  font-size: var(--font-size-base); /* Aplica el tamaño base */
+  color: var(--color-text); /* Color del texto general */
+  background: var(--color-white); /* Fondo general */
+  line-height: 1.6; /* Altura de línea para mejor legibilidad */
+}
+
+img { /* Buenas prácticas para imágenes */
+  max-width: 100%; /* Evita que las imágenes se salgan del contenedor */
+  height: auto; /* Mantiene proporción de la imagen */
+  display: block; /* Evita espacios raros debajo de imágenes */
+}
+
+a { /* Estilo base para enlaces */
+  color: inherit; /* Por defecto hereda el color del texto del contenedor */
+  text-decoration: none; /* Quita subrayado por defecto */
+}
+
+a:focus-visible { /* Estado de foco accesible para teclado */
+  outline: 3px solid var(--color-primary); /* Borde visible al navegar con Tab */
+  outline-offset: 3px; /* Separa el outline del elemento */
+}
+
+button { /* Reset mínimo para botones */
+  font: inherit; /* Hereda tipografía para consistencia */
+}
+
+.container { /* Contenedor reusable para centrar contenido */
+  max-width: var(--container-max); /* Limita el ancho */
+  margin: 0 auto; /* Centra horizontalmente */
+  padding: 0 var(--space-5); /* Da padding lateral para que no quede pegado al borde */
+}
+
+.btn { /* Componente base de botón para links o botones */
+  display: inline-flex; /* Permite alinear contenido interno fácil */
+  align-items: center; /* Centra verticalmente el texto */
+  justify-content: center; /* Centra horizontalmente el texto */
+  padding: var(--space-3) var(--space-5); /* Tamaño del botón */
+  border-radius: var(--radius-pill); /* Forma píldora */
+  font-weight: 600; /* Texto más fuerte para jerarquía */
+  transition: transform 180ms ease, background-color 180ms ease, color 180ms ease; /* Microinteracciones suaves */
+}
+
+.btn:active { /* Estado al hacer clic */
+  transform: scale(0.98); /* Pequeña compresión para sensación de click */
+}
+
+.btn--primary { /* Botón principal tipo CTA */
+  background: var(--color-white); /* En el diseño original el CTA suele ser claro sobre fondo */
+  color: var(--color-primary); /* Texto del CTA en color principal */
+}
+
+.btn--primary:hover { /* Hover del botón principal */
+  background: var(--color-primary-hover); /* Cambia el fondo para feedback visual */
+  color: var(--color-white); /* Cambia el texto para contraste */
+}
+
+.btn--secondary { /* Botón secundario */
+  background: transparent; /* Fondo transparente */
+  color: var(--color-white); /* Texto blanco para hero */
+  border: 1px solid var(--color-white); /* Borde visible */
+}
+
+.btn--secondary:hover { /* Hover del botón secundario */
+  background: var(--color-white); /* Invierte colores para feedback */
+  color: var(--color-primary); /* Texto en color principal */
+}
+
+.btn--link { /* Estilo link para Login */
+  background: transparent; /* Sin fondo */
+  color: var(--color-white); /* Texto blanco en header */
+  padding: var(--space-2) var(--space-3); /* Más pequeño que un botón */
+}
+
+.btn--link:hover { /* Hover del link */
+  text-decoration: underline; /* Feedback claro sin cambiar layout */
+}
+
+.section { /* Estilo base para secciones del main */
+  padding: var(--space-8) 0; /* Espaciado vertical grande entre secciones */
+}
+
+.section__title { /* Estilo base para títulos h2 */
+  color: var(--color-heading); /* Color más oscuro para jerarquía */
+  margin: 0 0 var(--space-5); /* Separación debajo del título */
+}
+
+.feature__title { /* Estilo base para títulos h3 */
+  color: var(--color-heading); /* Mantiene jerarquía en títulos internos */
+  margin: 0 0 var(--space-2); /* Separación pequeña debajo */
+}
+
+.feature__text { /* Estilo base para párrafos de features */
+  margin: 0 0 var(--space-5); /* Separación entre bloques */
+}
+
+/* Nota importante para tu examen:
+   Aún no hemos aplicado Grid ni Flexbox. En el Punto 2 aplicamos:
+   Flex in nav and hero, Grid in section__layout and footer__layout, and then media queries. */
+
+/* =========================
+   HEADER + NAV (FLEXBOX)
+   ========================= */
+
+.site-header { /* Contenedor del header completo (nav + hero) */
+  background: linear-gradient(180deg, var(--color-primary), var(--color-secondary)); /* Fondo degradado tipo hero del reto */
+  color: var(--color-white); /* Texto blanco porque el fondo es oscuro */
+  padding: var(--space-6) 0 var(--space-8); /* Espacio arriba y abajo para respirar */
+  border-bottom-left-radius: 80px; /* Curva grande inferior izquierda como estilo del diseño */
+}
+
+.nav { /* Contenedor principal de la navegación */
+  display: flex; /* Activa Flexbox para alinear elementos en una fila */
+  align-items: center; /* Alinea verticalmente logo, menú y acciones */
+  justify-content: space-between; /* Logo a la izquierda, acciones a la derecha */
+  gap: var(--space-5); /* Espacio entre grupos */
+}
+
+.nav__logo img { /* Imagen del logo dentro del nav */
+  width: 90px; /* Tamaño controlado del logo */
+}
+
+.nav__toggle { /* Botón del menú móvil, en desktop lo ocultamos */
+  display: none; /* Oculto en escritorio, lo activamos en media queries */
+  background: transparent; /* Sin fondo */
+  border: 0; /* Sin borde */
+  padding: var(--space-2); /* Área clickeable mínima */
+  cursor: pointer; /* Cursor de mano para indicar interactividad */
+}
+
+.nav__menu { /* Lista principal de navegación */
+  display: flex; /* Flex para poner los items en línea */
+  align-items: center; /* Alinea verticalmente cada item */
+  gap: var(--space-5); /* Espacio entre opciones del menú */
+  margin: 0; /* Quita margen por defecto del ul */
+  padding: 0; /* Quita padding por defecto del ul */
+  list-style: none; /* Quita viñetas */
+  flex: 1; /* Permite que el menú ocupe el espacio central entre logo y acciones */
+}
+
+.nav__actions { /* Contenedor de Login y Sign Up */
+  display: flex; /* Flex para alinear botones en fila */
+  align-items: center; /* Alinea verticalmente */
+  gap: var(--space-4); /* Espacio entre login y signup */
+}
+
+/* =========================
+   DROPDOWN (DETAILS/SUMMARY)
+   ========================= */
+
+.nav__dropdown { /* Contenedor nativo del dropdown */
+  position: relative; /* Permite posicionar el menú desplegable en relación a este contenedor */
+}
+
+.nav__link { /* Estilo del summary (texto clickeable) */
+  cursor: pointer; /* Indica que se puede hacer clic */
+  font-weight: 600; /* Jerarquía visual */
+  list-style: none; /* Evita marcador en algunos navegadores */
+}
+
+.nav__link:hover { /* Feedback al pasar el mouse por el título del dropdown */
+  text-decoration: underline; /* Hover claro y simple */
+}
+
+/* Oculta el triángulo por defecto del summary en navegadores WebKit */
+.nav__dropdown summary::-webkit-details-marker { /* Selector especial para Chrome/Safari */
+  display: none; /* Oculta el marcador nativo */
+}
+
+.dropdown { /* Lista interna del menú desplegable */
+  position: absolute; /* Se posiciona flotando debajo del summary */
+  top: calc(100% + 10px); /* Lo baja un poco para que no choque con el texto */
+  left: 0; /* Alineado al inicio del summary */
+  min-width: 180px; /* Ancho mínimo del dropdown */
+  background: var(--color-white); /* Fondo blanco para contraste */
+  color: var(--color-heading); /* Texto oscuro dentro del dropdown */
+  border-radius: var(--radius-sm); /* Bordes suaves */
+  padding: var(--space-3); /* Espacio interno */
+  margin: 0; /* Quita margen por defecto */
+  list-style: none; /* Quita viñetas */
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18); /* Sombra para sensación de capa flotante */
+  display: none; /* Oculto por defecto, se muestra cuando details está open */
+}
+
+.nav__dropdown[open] .dropdown { /* Cuando details está abierto, muestra el dropdown */
+  display: grid; /* Grid simple para separar items en filas con gap */
+  gap: var(--space-2); /* Espacio entre links */
+}
+
+.dropdown a { /* Enlaces dentro del dropdown */
+  display: block; /* Ocupa todo el ancho, más fácil de clic */
+  padding: var(--space-2) var(--space-2); /* Área clickeable */
+  border-radius: var(--radius-sm); /* Suaviza hover */
+}
+
+.dropdown a:hover { /* Hover de links del dropdown */
+  background: hsl(0, 0%, 95%); /* Fondo gris muy suave */
+}
+
+/* =========================
+   HERO (FLEXBOX + TIPOGRAFÍA FLUIDA)
+   ========================= */
+
+.hero { /* Sección hero dentro del header */
+  margin-top: var(--space-7); /* Separación del nav */
+  text-align: center; /* Centra el texto en desktop, luego lo ajustamos en responsive si hace falta */
+}
+
+.hero__title { /* h1 principal */
+  margin: 0 0 var(--space-3); /* Separación debajo */
+  font-weight: 700; /* Jerarquía máxima */
+  color: var(--color-white); /* Blanco para contraste */
+  font-size: clamp(2rem, 4vw, 3.5rem); /* Tipografía fluida: crece con pantalla sin romperse */
+  line-height: 1.1; /* Compacto, estilo hero */
+}
+
+.hero__subtitle { /* Párrafo de apoyo del h1 */
+  margin: 0 0 var(--space-6); /* Separación antes de botones */
+  color: hsl(0, 0%, 95%); /* Blanco suave para diferencia con el h1 */
+}
+
+.hero__cta { /* Contenedor de botones del hero */
+  display: flex; /* Flex para poner botones en fila */
+  justify-content: center; /* Centra horizontalmente */
+  gap: var(--space-4); /* Espacio entre botones */
+  flex-wrap: wrap; /* Si no caben, bajan a la siguiente línea sin romper layout */
+}
+
+/* =========================
+   MAIN SECTIONS (GRID)
+   ========================= */
+
+.section__layout { /* Contenedor general de layout para secciones con texto + imagen */
+  display: grid; /* Activa Grid */
+  grid-template-columns: 1fr 1fr; /* Dos columnas iguales: texto y media */
+  gap: var(--space-7); /* Espacio entre columnas */
+  align-items: center; /* Alinea verticalmente contenido e imagen */
+}
+
+.section__content { /* Bloque que agrupa artículos de texto */
+  display: grid; /* Grid para ordenar artículos en columna */
+  gap: var(--space-5); /* Espacio entre artículos */
+}
+
+.section__media { /* Bloque visual */
+  display: flex; /* Flex para centrar imagen si se requiere */
+  justify-content: center; /* Centra imagen horizontalmente */
+}
+
+/* Sección de infraestructura normalmente tiene fondo oscuro en el diseño */
+.section--infrastructure { /* Estilos específicos para esa sección */
+  background: var(--color-secondary); /* Fondo oscuro */
+  color: var(--color-footer-text); /* Texto más claro */
+  border-top-right-radius: 80px; /* Curvas grandes similares al diseño */
+  border-bottom-left-radius: 80px; /* Curvas grandes */
+}
+
+.section--infrastructure .section__title { /* Título dentro de infraestructura */
+  color: var(--color-white); /* Blanco para contraste con fondo oscuro */
+}
+
+.section--infrastructure .feature__text { /* Párrafo dentro de infraestructura */
+  margin: 0; /* Evita doble espacio */
+}
+
+/* =========================
+   FOOTER (GRID)
+   ========================= */
+
+.footer { /* Contenedor del footer */
+  background: var(--color-footer-bg); /* Fondo oscuro */
+  color: var(--color-footer-text); /* Texto claro */
+  padding: var(--space-8) 0; /* Espacio vertical */
+  border-top-right-radius: 80px; /* Curva superior derecha */
+}
+
+.footer__layout { /* Contenedor que luego será grid de columnas */
+  display: grid; /* Activa Grid */
+  grid-template-columns: 200px 1fr; /* Columna del logo fija y links ocupan el resto */
+  gap: var(--space-7); /* Espacio entre columnas */
+  align-items: start; /* Alinea arriba */
+}
+
+.footer__links { /* Contenedor de las 3 columnas de links */
+  display: grid; /* Grid para columnas */
+  grid-template-columns: repeat(3, 1fr); /* Tres columnas iguales */
+  gap: var(--space-7); /* Separación entre columnas */
+}
+
+.footer__title { /* Títulos de columnas del footer */
+  margin: 0 0 var(--space-3); /* Separación debajo del título */
+  color: var(--color-white); /* Blanco para jerarquía */
+  font-size: 1rem; /* Tamaño controlado */
+}
+
+.footer__list { /* Lista del footer */
+  margin: 0; /* Quita margen por defecto */
+  padding: 0; /* Quita padding por defecto */
+  list-style: none; /* Quita viñetas */
+  display: grid; /* Grid para ordenar links en filas */
+  gap: var(--space-2); /* Espacio entre links */
+}
+
+.footer__list a { /* Links dentro del footer */
+  color: var(--color-footer-text); /* Texto claro */
+  transition: color 180ms ease, text-decoration-color 180ms ease; /* Transición suave */
+}
+
+.footer__list a:hover { /* Hover de links */
+  color: var(--color-white); /* Se vuelve blanco para feedback */
+  text-decoration: underline; /* Subrayado para indicar interacción */
+}
+
+.footer__attribution { /* Texto final de atribución */
+  margin: var(--space-7) 0 0; /* Separación del grid */
+  font-size: 0.85rem; /* Más pequeño que el texto normal */
+  text-align: center; /* Centrado */
+}
+
+.footer__attribution a { /* Link dentro de attribution */
+  color: var(--color-white); /* Link visible */
+  text-decoration: underline; /* Subrayado para que se entienda que es link */
+}
+
+/* =========================
+   RESPONSIVE: TABLET (>= 768px)
+   ========================= */
+
+@media (max-width: 1024px) { /* Ajustes para pantallas medianas antes de llegar a tablet estricta */
+  .container { /* Reduce padding lateral para que el contenido quepa mejor */
+    padding: 0 var(--space-4); /* Menos padding a los lados */
+  }
+
+  .section__layout { /* En pantallas medianas, baja el espacio entre columnas */
+    gap: var(--space-6); /* Reduce separación */
+  }
+
+  .footer__layout { /* Footer: reduce el espacio entre columnas */
+    gap: var(--space-6); /* Menos separación */
+  }
+}
+
+/* =========================
+   RESPONSIVE: TABLET (<= 768px)
+   ========================= */
+
+@media (max-width: 768px) { /* Ajustes para tablet y móviles grandes */
+
+  .nav__menu { /* El menú principal se oculta en tablet para simular menú móvil */
+    display: none; /* Lo escondemos y lo reemplazamos por el botón */
+  }
+
+  .nav__actions { /* Acciones también se ocultan para un menú tipo mobile */
+    display: none; /* Se mostrarán luego dentro de un panel móvil si lo implementas */
+  }
+
+  .nav__toggle { /* Botón hamburguesa aparece en tablet y móvil */
+    display: inline-flex; /* Se hace visible */
+    align-items: center; /* Alinea el ícono */
+    justify-content: center; /* Centra el ícono */
+  }
+
+  .hero { /* Ajustes del hero para pantallas más pequeñas */
+    margin-top: var(--space-6); /* Menos separación del nav */
+    padding: 0 var(--space-3); /* Padding lateral para que el texto no choque */
+  }
+
+  .hero__cta { /* Botones del hero */
+    gap: var(--space-3); /* Menos espacio entre botones */
+  }
+
+  .section { /* Reduce padding vertical general de secciones */
+    padding: var(--space-7) 0; /* Menos alto que en desktop */
+  }
+
+  .section__layout { /* Cambio real de estructura: de 2 columnas a 1 columna */
+    grid-template-columns: 1fr; /* Una sola columna */
+    text-align: left; /* Texto alineado a la izquierda para lectura más cómoda */
+  }
+
+  .section__media { /* Imagen arriba o centrada según orden del HTML */
+    order: -1; /* Mueve la imagen arriba del texto cuando sea necesario */
+  }
+
+  .section--infrastructure .section__layout { /* Infraestructura puede mantener imagen arriba */
+    text-align: left; /* Asegura consistencia */
+  }
+
+  .footer__layout { /* Footer cambia estructura real: de 2 columnas a 1 */
+    grid-template-columns: 1fr; /* Todo en una columna */
+    text-align: center; /* Centra contenido en tablet */
+  }
+
+  .footer__brand { /* Marca del footer centrada */
+    display: flex; /* Flex para centrar */
+    justify-content: center; /* Centra logo */
+  }
+
+  .footer__links { /* Las 3 columnas del footer pasan a una sola columna */
+    grid-template-columns: 1fr; /* Una columna */
+    gap: var(--space-6); /* Separación vertical entre columnas */
+    text-align: center; /* Centra títulos y links */
+  }
+}
+
+/* =========================
+   RESPONSIVE: MÓVIL (<= 480px)
+   ========================= */
+
+@media (max-width: 480px) { /* Ajustes para móviles pequeños */
+
+  .container { /* Menos padding lateral para pantallas muy pequeñas */
+    padding: 0 var(--space-3); /* Ajuste fino para evitar overflow */
+  }
+
+  .hero__title { /* Ajuste de la tipografía fluida para móviles */
+    font-size: clamp(1.8rem, 7vw, 2.4rem); /* Escala más agresiva en pantallas pequeñas */
+  }
+
+  .hero__subtitle { /* Subtítulo en móvil */
+    font-size: 1rem; /* Tamaño cómodo de lectura */
+  }
+
+  .btn { /* Botones en móvil: más compactos para caber */
+    padding: var(--space-3) var(--space-4); /* Reduce ancho */
+  }
+
+  .section { /* Reduce aún más el padding vertical */
+    padding: var(--space-6) 0; /* Secciones más compactas */
+  }
+
+  .footer { /* Footer en móvil */
+    padding: var(--space-7) 0; /* Ajuste de altura */
+  }
+}
+
+
+
+
+
+
+.nav__mobile { /* Contenedor del menú móvil */
+  display: none; /* Oculto en escritorio */
+  position: relative; /* Referencia para posicionar el panel */
+}
+
+.nav__mobile summary::-webkit-details-marker { /* Oculta el triángulo por defecto en Chrome y Safari */
+  display: none; /* Quita el marcador nativo */
+}
+
+.nav__toggle { /* Botón del menú móvil */
+  cursor: pointer; /* Mano al pasar */
+  list-style: none; /* Evita marcador en algunos navegadores */
+}
+
+.nav__panel { /* Panel que se abre */
+  position: absolute; /* Flota sobre el contenido */
+  top: calc(100% + 12px); /* Baja un poco debajo del icono */
+  right: 0; /* Alineado a la derecha */
+  width: min(320px, 90vw); /* No se sale en móvil */
+  background: var(--color-white); /* Fondo blanco */
+  color: var(--color-heading); /* Texto oscuro */
+  border-radius: var(--radius-md); /* Bordes suaves */
+  padding: var(--space-5); /* Espacio interno */
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.22); /* Sombra */
+  display: none; /* Oculto hasta abrir details */
+}
+
+.nav__mobile[open] .nav__panel { /* Cuando details está abierto */
+  display: grid; /* Aparece en columna */
+  gap: var(--space-4); /* Espacio entre links */
+}
+
+@media (max-width: 768px) { /* En tablet y móvil */
+  .nav__mobile { /* Muestra el menú móvil */
+    display: block; /* Visible */
+  }
+}
+
+
+@media (max-width: 768px) { /* Tablet and mobile only settings */
+
+  .nav__menu--mobile { /* Esta es la lista del menú dentro del panel móvil */
+    display: grid; /* Fuerza que se vea aunque .nav__menu esté en display none */
+    gap: var(--space-4); /* Espacio entre items del menú */
+  }
+
+  .nav__actions--mobile { /* Este es el bloque Login y Sign Up dentro del panel móvil */
+    display: grid; /* Fuerza que se vea aunque .nav__actions esté en display none */
+    gap: var(--space-3); /* Espacio entre botones */
+  }
+
+  .nav__mobile[open] .nav__panel { /* Cuando el details está abierto */
+    display: grid; /* Asegura que el panel se muestre */
+    gap: var(--space-5); /* Espacio entre menú y acciones */
+    z-index: 999; /* Evita que quede por detrás de otras capas */
+  }
+
+  .nav { /* Contenedor del nav */
+    position: relative; /* Referencia para el panel absoluto */
+  }
+}
